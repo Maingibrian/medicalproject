@@ -1,0 +1,107 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+
+    margin-top: 20px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.alert {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.form-label {
+    color: #333;
+    font-weight: bold;
+}
+
+.form-control {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-secondary {
+    background-color: #0074cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-secondary:hover {
+    background-color: #005aa7;
+}
+
+
+/* Additional styling for anchor links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.notification-message {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.btn-back-to-notifications {
+    background-color: #0074cc;
+    color: #fff;
+}
+
+.btn-back-to-home {
+    background-color: #333;
+    color: #fff;
+}
+.notifications-list {
+    list-style: none;
+    padding: 0;
+}
+
+.notification-item {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.no-notifications {
+    font-style: italic;
+    color: #888;
+}
+
+.mark-as-read {
+    color: #0074cc;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.mark-as-read:hover {
+    text-decoration: underline;
+}
+
+.btn-back-to-home {
+    background-color: #333;
+    color: #fff;
+}

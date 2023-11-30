@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Medication Package Information{% endblock %}
+
+{% block content %}
+     <p><a class="button" href="/">BACK TO HOME</a>
+ <a class="button" href="{% url 'logout_user' %}" class="navbar-button">Logout</a></p>
+
+
+<div class="container">
+    <h1>Medication Package Information</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>workers </th>
+                <th>Package  </th>
+                <th>Medication</th>
+                <th>Quantity</th>
+                <th>Status</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for package in mymeds %}
+                <tr>
+                    <td>{{ package.county_Health_Worker }}</td>
+                    <td>{{ package.packageID }}</td>
+                    <td>{{ package.medicationName }}</td>
+                    <td>{{ package.quantity }}</td>
+                    <td>{{ package.status }}</td>
+                    <td><a class="btn btn-sm btn-update" href="{% url 'update_med' package.id %}">Update</a></td>
+                    <td><a class="btn btn-sm btn-update" href="{% url 'delete_med' package.id %}">Delete</a></td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+    <a class="button btn-back-to-home" href="/">BACK TO HOME</a>
+{% endblock %}

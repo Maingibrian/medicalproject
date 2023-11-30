@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Update Medication Distribution{% endblock %}
+
+{% block content %}
+  <h1>Update Medication Distribution</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update</button>
+  </form>
+  <a href="{% url 'user_page' %}">Back to User Page</a>
+{% endblock %}

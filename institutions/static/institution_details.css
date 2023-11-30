@@ -1,0 +1,81 @@
+/* Add the styles for Status and Quantity banners */
+.status-banner {
+    padding: 5px;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.quantity-banner {
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Add styles for background colors */
+.status-delivered {
+    background-color: green; /* Green background for Delivered status */
+    /* Add other styles for Delivered status if needed */
+}
+
+.status-pending {
+    background-color: red; /* Red background for Pending status */
+    /* Add other styles for Pending status if needed */
+}
+
+.quantity-low {
+    background-color: red; /* Red background for quantity < 5 */
+    /* Add other styles for low quantity if needed */
+}
+
+/* Add any additional styles you need below */
+
+/* Header styles */
+h1 {
+    font-size: 28px;
+    color: #0074cc;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Details styles */
+.institution-details {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.detail {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.detail strong {
+    font-weight: bold;
+    color: #0074cc;
+}
+
+/* Back button styles */
+a {
+    text-decoration: none;
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #0074cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #005aa7;
+}

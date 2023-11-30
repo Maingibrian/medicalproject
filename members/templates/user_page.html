@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}User Profile{% endblock %}
+
+{% block content %}
+<div class="user-profile">
+    <header>
+        <h1>Welcome Back, {{ user.username }}</h1>
+    </header>
+
+    <section class="institution-info">
+        <h2>Institution Information</h2>
+        {% if user_institution %}
+        <p><strong>Institution ID:</strong> {{ user_institution.institution_ID }}</p>
+        <p><strong>Institution Name:</strong> {{ user_institution.name }}</p>
+        <p><strong>Location:</strong> {{ user_institution.location }}</p>
+        {% else %}
+        <p>No institution associated.</p>
+        {% endif %}
+    </section>
+
+    <section class="medication-info">
+        <h2>Medications Distributed</h2>
+        <div class="medication-list">
+            {% if user_medication_packages %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Medication Name</th>
+                        <th>Quantity Distributed</th>
+                        <th>Update</th> {# New Column for Update Link #}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for distribution in user_medication_packages %}
+                    <tr>
+                        <td>{{ distribution.package.medicationName }}</td>
+                        <td>{{ distribution.quantity }}</td>
+                        <td>
+                            <a class="btn btn-sm btn-update" href="{% url 'user_update_distribution' distribution.pk %}">Update</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>No medications have been distributed to this institution.</p>
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="user-activities">
+        <h2>Recent Activities</h2>
+        <ul class="activity-list">
+            <li>Logged in on {{ user.last_login }}</li>
+        </ul>
+    </section>
+
+    <p><a class="button" href="{% url 'user_report' %}" class="navbar-button">Generate Your Report Here</a></p>
+    <p><a class="button" href="{% url 'logout_user' %}" class="navbar-button">Logout</a></p>
+</div>
+{% endblock %}

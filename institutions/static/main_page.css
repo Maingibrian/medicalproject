@@ -1,0 +1,114 @@
+ /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
+            overflow: hidden; /* Hide scrollbars */
+        }
+
+        /* Container styles */
+
+
+        /* Animated header container */
+        .header-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header styles */
+        header {
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #0074cc;
+            margin-bottom: 10px;
+            animation: fadeInSlow 2s ease-in-out;
+        }
+
+        @keyframes fadeInSlow {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header p {
+            font-size: 18px;
+            color: #666;
+            animation: fadeInSlow 2s ease-in-out;
+        }
+
+        /* Button styles */
+        .button-section {
+            text-align: center;
+            margin-top: 20px;
+            animation: fadeInSlow 2s ease-in-out;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background-color: #0074cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+            cursor: pointer;
+            animation: fadeInSlow 2s ease-in-out;
+        }
+
+        .cta-button:hover {
+            background-color: #005aa7;
+            transform: scale(1.05);
+        }
+
+        /* Additional Content styles */
+        .additional-content {
+            text-align: center;
+            padding: 30px 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            animation: fadeInSlow 2s ease-in-out;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #0074cc;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+        }

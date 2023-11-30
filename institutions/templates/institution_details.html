@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Institution Information{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center mt-4 mb-4">Institution Details</h1>
+    <div class="row">
+        {% for package in info %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ package.medicationName }}</h5>
+                    <div class="status-banner {% if package.status == 'Delivered' %}status-delivered{% else %}status-pending{% endif %}">
+                    Status: {{ package.status }}
+                </div>
+                <div class="quantity-banner {% if package.quantity < 5 %}quantity-low{% endif %}">
+                    Quantity: {{ package.quantity }}
+                </div>
+
+
+                    <div class="horizontal-info">
+                        <div class="info-label">Batch Number:</div>
+                        <div class="info-value">{{ package.batchNumber }}</div>
+                    </div>
+                    <div class="horizontal-info">
+                        <div class="info-label">Expiry Date:</div>
+                        <div class="info-value">{{ package.expiryDate }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<p class="text-center"><a class="button" href="{% url 'institutions' %}">GO BACK </a></p>
+{% endblock %}

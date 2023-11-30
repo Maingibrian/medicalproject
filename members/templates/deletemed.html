@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Delete medication{% endblock %}
+
+{% block content %}
+    <p>Are you sure you want to delete '{{ item }}'</p>
+    <form action="{% url 'delete_med' item.id%}" method="POST">
+    {% csrf_token %}
+
+    <a href="{% url 'medication' %}">Cancel  </a>
+
+    <input type="submit" name="Confirm">
+    </form>
+
+{% endblock %}

@@ -1,0 +1,121 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Table styles */
+table {
+    width: 100%; /* Set the table width to 100% to fill the container */
+    border-collapse: collapse;
+    margin-top: 30px;
+    border-radius: 7px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Header styles */
+h1 {
+    font-size: 28px;
+    color: #0074cc;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Table container styles */
+.table-container {
+    overflow: auto;
+    padding: 10px;
+    max-width: 100%;
+}
+
+/* Table styles */
+
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+th {
+    background: linear-gradient(to bottom, #0074cc, #005aa7);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ff9844;
+    color: rgb(255, 255, 255);
+    transform: scale(1.02);
+    transition: all 0.3s ease-in-out;
+}
+
+.clickable-row {
+    cursor: pointer;
+}
+
+.clickable-row:hover td {
+    background-color: #ff9844;
+    color: white;
+    transform: scale(1.02);
+}
+
+/* Additional styling for anchor links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Back to Home button */
+p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+a.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0074cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+a.button:hover {
+    background-color: #005aa7;
+}
+/* Add a new style for the "Update" button */
+.btn-update {
+    background-color: #ff9844; /* Change the background color to your desired color */
+    color: white; /* Change the text color to white or your desired color */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-update:hover {
+    background-color: #637ccc; /* Change the hover background color to your desired color */
+}

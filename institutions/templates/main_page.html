@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}<title>Welcome to Our Site</title>{% endblock %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <style>
+        /* Your existing CSS styles here */
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background-image: url("{% static 'images/drugs.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        /* Add this CSS to your existing styles or in a separate CSS file */
+
+/* Navigation Bar Styles */
+.navbar {
+    background-color: #333; /* Background color of the navbar */
+    color: #fff; /* Text color */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.navbar-logo img {
+    max-height: 50px; /* Adjust the logo height as needed */
+}
+
+.navbar-buttons {
+    margin-left: auto;
+}
+
+.navbar-button {
+    background-color: #007BFF; /* Button background color */
+    color: #fff; /* Button text color */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 10px; /* Adjust the spacing between buttons */
+}
+
+.navbar-button:hover {
+    background-color: #0056b3; /* Hover background color */
+}
+
+/* Media query for responsive navigation */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-buttons {
+        margin-top: 10px;
+        margin-left: 0;
+    }
+
+    .navbar-button {
+        margin-top: 5px;
+        margin-left: 0;
+    }
+}
+
+
+    </style>
+</head>
+{% block content %}
+    <div class="container">
+        <!-- Add the navigation bar -->
+        <div class="navbar">
+            <div class="navbar-logo">
+                <!-- Link the logo image to the desired URL -->
+                <a href="/link-to-logo-page">
+                    <img src="{% static 'logo.png' %}" alt="Logo">
+                </a>
+            </div>
+            <div class="navbar-buttons">
+                <!-- Add a logout button and a contacts button with links -->
+                <a href="{% url 'logout_user' %}" class="navbar-button">Logout</a>
+
+            </div>
+        </div>
+        <div class="header-container">
+            <header>
+                <h1>Welcome to the E-DRUG MANAGEMENT SITE</h1>
+                <p>Your trusted e-drug management tool</p>
+            </header>
+        </div>
+
+        <section class="button-section">
+            <a class="cta-button" href="{% url 'Home2' %}">Explore </a></p>
+            <a class="cta-button" href="{% url 'institutions' %}"> Institutions</a>
+            <a class="cta-button" href="{% url 'register_user' %}">Register Medical Institution Worker</a>
+            <a class="cta-button" href="{% url 'admin_report' %}">Generate Report</a>
+            <a class="cta-button" href="{% url 'medication' %}">Document Medication</a>
+            <a class="cta-button" href="{% url 'notifications' %}">Notifications</a>
+
+        </section>
+
+        <!-- Additional Content Section -->
+        <div class="additional-content">
+            <h2>Our Services</h2>
+            <p>
+In our services area, we aim to provide a comprehensive and efficient pharmaceutical management system tailored for the unique needs of healthcare institutions and county health workers in Kenya. Our system offers a centralized platform where county health workers can meticulously document the distribution of medical packages to medical institutions. Simultaneously, medical institutions can access this platform to monitor the quantity of medication dispatched to them.</p>
+        </div>
+    </div>
+{% endblock %}
+</html>

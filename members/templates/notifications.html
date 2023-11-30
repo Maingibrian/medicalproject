@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Notifications{% endblock %}
+{% block content %}
+    <a class="button" href="{% url 'logout_user' %}" class="navbar-button">Logout</a>
+<div class="container">
+    <h1 class="mt-4 mb-4">Your Notifications</h1>
+    <ul class="notifications-list">
+        {% for notification in notifications %}
+            <li class="notification-item">
+                {{ notification.message }}
+
+                {% if not notification.is_read %}
+                    <a class="mark-as-read" href="{% url 'mark_notification_as_read' notification.id %}">Mark as Read</a>
+                {% endif %}
+            </li>
+        {% empty %}
+            <p class="no-notifications">No unread notifications.</p>
+        {% endfor %}
+    </ul>
+
+    <a class="button btn-back-to-home" href="/">BACK TO HOME</a>
+</div>
+{% endblock %}

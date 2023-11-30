@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Medication Package Information{% endblock %}
+
+{% block content %}
+    <p><a class="button" href="/">BACK TO HOME</a>
+    <a class="button" href="{% url 'new_institution' %}">ADD NEW INSTITUTION</a>
+        <a class="button" href="{% url 'logout_user' %}" class="navbar-button">Logout</a>
+    </p>
+    <h2> Choose Your County of Choice </h2>
+<form method="get">
+    {{myFilter.form}}
+    <input type="submit" name="Submit">
+</form>
+<div class="container">
+    <h1>Institutions Information</h1>
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Institution ID</th>
+                    <th>Institution Name</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for package in institutions %}
+                    <tr>
+                        <td>{{ package.institution_ID }}</td>
+                        <td>{{ package.name }}</td>
+                        <td><a class="btn btn-sm btn-update" href="{% url 'update_institution' package.id %}">Update</a></td>
+                        <td><a class="btn btn-sm btn-update" href="{% url 'delete_institution' package.id %}">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+</div>
+
+    {% endblock %}

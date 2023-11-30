@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Auditor{% endblock %}
+
+{% block content %}
+
+        <a  class="button" href="{% url 'logout_user' %}" class="navbar-button">Logout</a>
+    </p>
+       <h1>Hello Auditor</h1>
+          <div class="header-container">
+            <header>
+                <h1>Welcome to the E-DRUG MANAGEMENT SITE</h1>
+                <p>Your trusted e-drug management tool</p>
+            </header>
+          </div>
+     <section class="button-section">
+
+        <p>  <a class="button" href="{% url 'institutions' %}">Explore Institutions</a>
+
+            <a class="button" href="{% url 'admin_report' %}">Generate Report</a>
+
+            <a class="button" href="{% url 'medication' %}">view Medication</a></p>
+
+     </section>
+
+     <h1 class="mt-4 mb-4">Your Notifications</h1>
+    <ul class="notifications-list">
+        {% for notification in notifications %}
+            <li class="notification-item">
+                {{ notification.message }}
+
+                {% if not notification.is_read %}
+                    <a class="mark-as-read" href="{% url 'mark_notification_as_read' notification.id %}">Mark as Read</a>
+                {% endif %}
+            </li>
+        {% empty %}
+            <p class="no-notifications">No unread notifications.</p>
+        {% endfor %}
+    </ul>
+
+
+<div class="container">
+    <h1>Institutions Information</h1>
+        <form method="get">
+            {{ myFilter2.form }}
+            <input type="submit" name="Submit">
+        </form>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th> </th>
+                    <th>Institution ID</th>
+                    <th>Institution Name</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for package in institutions %}
+                    <tr>
+                        <td><a class="btn btn-sm btn-update" href="{% url 'Institutions' package.id %}">view</a></td>
+                        <td>{{ package.institution_ID }}</td>
+                        <td>{{ package.name }}</td>
+                        <td><a class="btn btn-sm btn-update" href="{% url 'update_institution' package.id %}">Update</a></td>
+                        <td><a class="btn btn-sm btn-update" href="{% url 'delete_institution' package.id %}">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+</div>
+
+<div>
+    <h1>Medication Package Information</h1>
+<a class="button" href="{% url 'new_med'%}">ADD NEW MEDICATION</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Official </th>
+                <th>Package  </th>
+                <th>Medication</th>
+                <th>Quantity</th>
+                <th>Status</th>
+
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for package in mymeds %}
+                <tr>
+                    <td>{{ package.creator  }}</td>
+                    <td>{{ package.id }}</td>
+                    <td>{{ package.medicationName }}</td>
+                    <td>{{ package.quantity }}</td>
+                    <td>{{ package.status }}</td>
+
+                    <td><a class="btn btn-sm btn-update" href="{% url 'delete_med' package.id %}">Delete</a></td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+<h1> Distribute Medcations Here</h1>
+
+<form action=" " method="POST">
+        {% csrf_token %}
+        {{ form }}
+
+        <input type="submit" name="Submit">
+</form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>User </th>
+                <th>Package  </th>
+                <th>institution</th>
+                <th>Quantity</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for package in med %}
+                <tr>
+                    <td>{{ package.user }}</td>
+                    <td>{{ package.package }}</td>
+                    <td>{{ package.institution }}</td>
+                    <td>{{ package.quantity }}</td>
+                    <td><a class="btn btn-sm btn-update" href="{% url 'delete_med_distribution' package.pk %}">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

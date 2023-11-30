@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Notification Marked as Read{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4 mb-4">Notification Marked as Read</h1>
+    <p class="notification-message">The selected notification has been marked as read.</p>
+
+    <a class="button btn-back-to-notifications" href="{% url 'notifications' %}">Back to Notifications</a>
+</div>
+{% endblock %}
